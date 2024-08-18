@@ -3,8 +3,8 @@
 /**
  * SyncFreeBusy Module
  * 
-* This module provides functionality to synchronize events between a primary and remote calendar by ensuring that 
-* free and busy times are managed to prevent double-booking. The module encapsulates the logic required to 
+ * This module provides functionality to synchronize events between a primary and remote calendar by ensuring that 
+ * free and busy times are managed to prevent double-booking. The module encapsulates the logic required to 
  * fetch events, create blocking events, and remove obsolete or expired events.
  * 
  * The SyncFreeBusy module is built using the **Module Pattern**, a design pattern that promotes code organization 
@@ -20,12 +20,12 @@
  * @param {string} params.primaryCalendarId - The ID of the primary calendar.
  * @param {string} params.remoteCalendarId - The ID of the remote calendar.
  * @param {number} [params.lookBackPeriod=604800000] - The look-back period in milliseconds (default is 1 week).
- * @param {number} [params.lookAheadPeriod=7776000000] - The look-ahead period in milliseconds (default is 3 months).
+ * @param {number} [params.lookAheadPeriod=7776000000] - The look-ahead period in milliseconds (default is 60 days).
  * @returns {Object} - The SyncFreeBusy module exposing the `synchronizeCalendars` and `removeBlockingEvents` methods.
  */
 const SyncFreeBusy = (params = {}) => {
     // Validate required parameters
-    // Ensures that both primaryCalendarId and remoteCalendarId are provided in the params object.
+    // Ensure that both primaryCalendarId and remoteCalendarId are provided in the params object.
     if (!params.primaryCalendarId || !params.remoteCalendarId) {
         throw new Error("primaryCalendarId and remoteCalendarId are required");
     }
