@@ -308,7 +308,6 @@ const SyncFreeBusy = (params = {}) => {
                 // Skip events that are already blocking events created by this script
                 const isAlreadyBlocked = sourceEvent.getTag('blocked') === 'true' && sourceEvent.getTag('sourceCalendarId') === targetCalendarId;
                 if (isAlreadyBlocked) {
-                    console.log(`Skipping event "${sourceEvent.getTitle()}" as it is already a blocking event.`);
                     return false;
                 }
 
