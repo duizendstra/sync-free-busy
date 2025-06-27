@@ -1,0 +1,47 @@
+# tasks/_init.yml
+# This file contains the foundational Action for initializing the project.
+# It ensures the .env file exists and is properly configured.
+version: '3'
+
+tasks:
+  init:
+    desc: "(Helper) Verifies .env exists and is configured, creating it if needed."
+    internal: true
+    silent: true
+    cmds:
+      - |
+        # Why: The .env file is critical for all subsequent tasks.
+        # If it doesn't exist, we should create it for the user to reduce friction.
+        if [ ! -f .env ]; then
+          echo "--> .env file not found. Creating one from .env.example..."
+          cp .env.example .env
+          echo "✅ .env file created. Please edit it with your project values."
+          # Why: We exit here because the user MUST configure the new file.
+          exit 1
+        fi
+      - |
+        # Why: To prevent errors, we must ensure the user has replaced all
+        # placeholder values from the example file. This grep is a safety net.
+        if grep -q "your-" .env; then
+          echo "❌ CONFIGURATION INCOMPLETE: Your .env file still contains placeholder values." >&2
+          echo "   Please edit the .env file and replace all 'your-...' placeholders." >&2
+          exit 1
+        fi
+        echo "✅ .env file is present and correctly configured."
+
+  # This task is for the `task env` command to display variables.
+  env-display:
+    internal: true
+    silent: true
+    cmds:
+      - |
+        echo "--- Loaded Environment Variables ---"
+        echo "ASSETS_PROJECT_ID:      {{.ASSETS_PROJECT_ID}}"
+        echo "STORAGE_PROJECT_ID:     {{.STORAGE_PROJECT_ID}}"
+        echo "COMPUTE_PROJECT_ID:     {{.COMPUTE_PROJECT_ID}}"
+        echo "ARTIFACT_REGISTRY_REPO: {{.ARTIFACT_REGISTRY_REPO}}"
+        echo "GCS_BUCKET_NAME:        {{.GCS_BUCKET_NAME}}"
+        echo "TARGET_USER_EMAILS:     {{.TARGET_USER_EMAILS}}"
+        echo "TARGET_PRINCIPAL_SA:    {{.TARGET_PRINCIPAL_SA}}"
+        echo "LOG_LEVEL:              {{.LOG_LEVEL}}"
+        echo "---"

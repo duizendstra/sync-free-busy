@@ -1,0 +1,21 @@
+# tasks/_update.yml
+# This file defines the helper task for updating Go dependencies.
+version: '3'
+
+tasks:
+  deps-update:
+    internal: true
+    desc: "(Helper) Updates all Go dependencies to their latest minor/patch versions."
+    silent: true
+    summary: |
+      This task runs 'go get -u ./...' to update all direct and indirect
+      Go dependencies to their latest available minor or patch versions.
+
+      WARNING: This can potentially introduce breaking changes from dependencies.
+      After running, you should always run 'task test' to ensure compatibility.
+    cmds:
+      - echo "--> Updating all Go module dependencies..."
+      - go get -u ./...
+      - echo "--> Tidying Go modules after update..."
+      - go mod tidy
+      - echo "✅ Dependencies updated successfully."

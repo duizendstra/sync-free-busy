@@ -1,0 +1,14 @@
+# tasks/_verify.yml
+# This file defines the helper task for verifying the environment.
+# It orchestrates the process by calling the comprehensive verify.sh script.
+version: '3'
+
+tasks:
+  verify:
+    desc: "(Helper) Runs the comprehensive verification script."
+    internal: true
+    silent: true
+    cmds:
+      # The script will automatically pick up the necessary environment variables
+      # (e.g., ASSETS_PROJECT_ID) that are loaded by the root Taskfile.
+      - ./scripts/verify.sh

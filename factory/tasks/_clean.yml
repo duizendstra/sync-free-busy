@@ -1,0 +1,10 @@
+# tasks/_clean.yml
+# Implements the high-level 'clean' command.
+version: '3'
+
+tasks:
+  clean:
+    desc: "Cleans generated files and interactively prompts for branch cleanup."
+    silent: true
+    cmds:
+      - ./scripts/clean.sh

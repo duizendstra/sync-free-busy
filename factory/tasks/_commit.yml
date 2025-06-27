@@ -1,0 +1,11 @@
+# tasks/_commit.yml
+# Implements the high-level 'commit' command.
+version: '3'
+
+tasks:
+  commit:
+    desc: "(Action) Stages all changes and then commits them via a script."
+    silent: true
+    cmds:
+      # Call the script, passing all command-line arguments through.
+      - ./scripts/commit.sh {{.CLI_ARGS}}

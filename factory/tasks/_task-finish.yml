@@ -1,0 +1,10 @@
+# tasks/_task-finish.yml
+# Implements the high-level 'task-finish' command.
+version: '3'
+
+tasks:
+  task-finish:
+    desc: "(Action) Syncs the branch and opens a browser to create a PR."
+    silent: true
+    cmds:
+      - ./scripts/finish_task.sh

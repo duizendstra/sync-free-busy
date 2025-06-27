@@ -1,0 +1,23 @@
+# tasks/_provision.yml
+# This file defines the helper task for displaying the provisioning guide.
+# It orchestrates the process by calling the provision_guide.sh script.
+version: '3'
+
+tasks:
+  provision:
+    desc: "(Helper) Runs the provisioning guide script."
+    internal: true
+    silent: true
+    env:
+      # This block explicitly exports all the necessary variables from the
+      # Taskfile's context into the environment of the shell script.
+      ASSETS_PROJECT_ID:      "{{.ASSETS_PROJECT_ID}}"
+      ASSETS_GCP_REGION:      "{{.ASSETS_GCP_REGION}}"
+      ARTIFACT_REGISTRY_NAME: "{{.ARTIFACT_REGISTRY_NAME}}"
+      STORAGE_PROJECT_ID:     "{{.STORAGE_PROJECT_ID}}"
+      GCS_BUCKET_NAME:        "{{.GCS_BUCKET_NAME}}"
+      COMPUTE_PROJECT_ID:     "{{.COMPUTE_PROJECT_ID}}"
+      TARGET_PRINCIPAL_SA:    "{{.TARGET_PRINCIPAL_SA}}"
+    cmds:
+      # The script will now correctly inherit the environment variables defined above.
+      - ./scripts/provision_guide.sh

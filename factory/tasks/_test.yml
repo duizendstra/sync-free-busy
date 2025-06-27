@@ -1,0 +1,25 @@
+# tasks/_test.yml
+# This file defines the helper task for running tests.
+# It orchestrates the process by calling the comprehensive test.sh script.
+version: '3'
+
+vars:
+  TEST_LOG_FILE: test-results.log
+
+tasks:
+  test:
+    desc: "(Helper) Runs the interactive test script."
+    silent: true
+    cmds:
+      # Pass the log file variable as an argument to the script.
+      - ./scripts/test.sh {{.TEST_LOG_FILE}}
+  
+  # This helper is kept separate so the script can call it without re-running the menu.
+  run-integration:
+    internal: true
+    desc: "(Helper) Runs only the integration tests."
+    silent: true
+    cmds:
+      - echo "--> Running integration tests (this may take several minutes). Output will be saved to {{.TEST_LOG_FILE}}"
+      - cmd: "CGO_ENABLED=1 go test -tags=integration -timeout 30m ./integration_test/... 2>&1 | tee {{.TEST_LOG_FILE}}; exit ${PIPESTATUS[0]}"
+        ignore_error: true

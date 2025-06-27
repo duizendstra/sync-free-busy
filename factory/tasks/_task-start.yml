@@ -1,0 +1,11 @@
+# tasks/_task-start.yml
+# Implements the high-level 'task-start' command.
+version: '3'
+
+tasks:
+  task-start:
+    desc: "(Action) Creates and checks out a new feature branch."
+    silent: true
+    cmds:
+      # Call the script, passing all command-line arguments through.
+      - ./scripts/start_task.sh {{.CLI_ARGS}}
