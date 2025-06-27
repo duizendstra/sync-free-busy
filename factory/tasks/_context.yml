@@ -1,8 +1,11 @@
 # factory/tasks/_context.yml
 version: '3'
+
 tasks:
-  context:
-    desc: "(Placeholder) Task to be implemented for context."
-    silent: true
+  # This single helper task is called by all `context:*` tasks in the root Taskfile.
+  # It receives the specific mode (e.g., 'export-code') via CLI_ARGS.
+  helper:
+    internal: true
+    desc: "Internal helper to run the main context script."
     cmds:
-      - echo "INFO - The 'context' task is a placeholder and needs to be implemented."
+      - ./factory/scripts/context.sh {{.CLI_ARGS}}

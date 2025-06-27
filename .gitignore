@@ -1,3 +1,4 @@
 main.js
 # Node.js dependencies
 **/node_modules
+context_*
