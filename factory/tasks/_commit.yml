@@ -1,8 +1,10 @@
 # factory/tasks/_commit.yml
 version: '3'
+
 tasks:
   commit:
-    desc: "(Placeholder) Task to be implemented for commit."
+    desc: "Stages all changes and commits them with the provided arguments."
     silent: true
     cmds:
-      - echo "INFO - The 'commit' task is a placeholder and needs to be implemented."
+      # Call the script, passing all command-line arguments through.
+      - ./factory/scripts/commit.sh {{.CLI_ARGS}}
