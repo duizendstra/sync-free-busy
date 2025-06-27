@@ -1,14 +1,8 @@
-# tasks/_destroy.yml
-# This file defines the helper task for destroying the environment.
-# It orchestrates the process by calling the guarded, interactive destroy.sh script.
+# factory/tasks/_destroy.yml
 version: '3'
-
 tasks:
   destroy:
-    desc: "(Helper) Runs the interactive destruction script."
-    internal: true
+    desc: "(Info) This task is not applicable to Apps Script projects."
     silent: true
     cmds:
-      # We pass the project IDs from the Taskfile's environment directly to the
-      # script. This ensures the script always knows which projects to target.
-      - ./scripts/destroy.sh {{.COMPUTE_PROJECT_ID}} {{.STORAGE_PROJECT_ID}} {{.ASSETS_PROJECT_ID}}
+      - echo "INFO - The 'destroy' command is not used in this Apps Script project."

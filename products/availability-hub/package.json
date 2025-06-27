@@ -1,0 +1,10 @@
+{
+  "name": "sync-free-busy-availability-hub",
+  "version": "1.0.0",
+  "description": "Availability-hub variant of the SyncFreeBusy project.",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^9.29.0",
+    "eslint-plugin-googleappsscript": "^1.0.5"
+  }
+}

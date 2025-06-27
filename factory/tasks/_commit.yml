@@ -1,11 +1,8 @@
-# tasks/_commit.yml
-# Implements the high-level 'commit' command.
+# factory/tasks/_commit.yml
 version: '3'
-
 tasks:
   commit:
-    desc: "(Action) Stages all changes and then commits them via a script."
+    desc: "(Placeholder) Task to be implemented for commit."
     silent: true
     cmds:
-      # Call the script, passing all command-line arguments through.
-      - ./scripts/commit.sh {{.CLI_ARGS}}
+      - echo "INFO - The 'commit' task is a placeholder and needs to be implemented."

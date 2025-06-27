@@ -1,14 +1,8 @@
-# tasks/_run.yml
-# This file defines the helper task for running the application.
-# It orchestrates the process by calling the interactive run.sh script.
+# factory/tasks/_run.yml
 version: '3'
-
 tasks:
   run:
-    desc: "(Helper) Runs the interactive application execution script."
-    internal: true
+    desc: "(Info) This task is not applicable to Apps Script projects."
     silent: true
     cmds:
-      # This single command now replaces all the complex logic previously in this file.
-      # The Task runner will automatically make .env variables available to the script.
-      - ./scripts/run.sh
+      - echo "INFO - The 'run' command is not used in this Apps Script project."

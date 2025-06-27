@@ -1,0 +1,10 @@
+{
+  "name": "sync-free-busy-direct-link",
+  "version": "1.0.0",
+  "description": "Direct-link variant of the SyncFreeBusy project.",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^9.29.0",
+    "eslint-plugin-googleappsscript": "^1.0.5"
+  }
+}

@@ -1,14 +1,8 @@
-# tasks/_build.yml
-# This file defines the helper task for building the local binary artifact.
-# It has a single responsibility, aligning with the new design philosophy.
+# factory/tasks/_build.yml
 version: '3'
-
 tasks:
   build:
-    desc: "(Helper) Compiles the Go application into a local binary."
-    internal: true
+    desc: "(Info) This task is not applicable to Apps Script projects."
     silent: true
     cmds:
-      - echo "--> Building Go binary into ./bin/..."
-      - mkdir -p ./bin
-      - go build -v -o ./bin/florbs-go-job-worker ./cmd/main.go
+      - echo "INFO - The 'build' command is not used in this Apps Script project."

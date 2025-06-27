@@ -1,52 +1,21 @@
-# tasks/_analyze.yml
-# This file defines tasks for static analysis, linting, and code quality checks.
-# This task will automatically fix any issues it can.
+# factory/tasks/_analyze.yml
 version: '3'
 
 tasks:
-  # This is the main helper called by the root 'analyze' task.
-  # It orchestrates all other quality checks defined in this file.
-  # It will attempt to fix issues directly and fail if unable to.
   analyze:
-    internal: true
-    desc: "(Helper) Runs all quality checks and automatically fixes issues."
-    silent: true
-    summary: |
-      Runs all code and documentation quality checks.
-
-      This task MODIFIES files in place to fix formatting and linting errors.
-      It will fail if it encounters errors that cannot be automatically fixed.
-    deps:
-      - go
-      - docs
-
-  # This task groups all Go-specific quality checks and fixes.
-  go:
-    internal: true
-    desc: "(Helper) Fixes Go formatting/linting and tidies modules."
+    desc: "Analyzes the code of a selected product using ESLint."
     silent: true
     cmds:
-      # Step 1: Automatically format all Go import statements.
-      # The '-format' flag writes changes directly to the source files.
-      - echo "--> Fixing Go import formatting..."
-      - goimports-reviser -format ./...
+      - |
+        echo "Please select the product to analyze:"
+        PRODUCT=$(gum choose "direct-link" "availability-hub")
 
-      # Step 2: Run the linter with the --fix flag to automatically correct issues.
-      # It will still exit with an error for any unfixable problems.
-      - echo "--> Applying golangci-lint fixes..."
-      - golangci-lint run --fix ./...
+        if [ -z "$PRODUCT" ]; then
+          echo "No product selected. Aborting analysis."
+          exit 1
+        fi
 
-      # Step 3: Tidy modules again after potential fixes have been applied.
-      - echo "--> Tidying Go modules..."
-      - go mod tidy
-
-  # This task handles the quality checks and fixes for all documentation files.
-  docs:
-    internal: true
-    desc: "(Helper) Fixes linting issues in all Markdown documentation files."
-    silent: true
-    cmds:
-      # Step 1: Run markdownlint with the --fix flag.
-      # The tool will automatically use the .markdownlint.json and .markdownlintignore files.
-      - echo "--> Fixing Markdown files..."
-      - markdownlint --fix "**/*.md"
+        echo "--> Analyzing '{{.PRODUCT}}' with ESLint..."
+        # Change directory, run eslint, then change back.
+        (cd products/$PRODUCT && npx eslint .)
+        echo "✅ Analysis for '{{.PRODUCT}}' finished."

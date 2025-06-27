@@ -1,10 +1,8 @@
-# tasks/_task-finish.yml
-# Implements the high-level 'task-finish' command.
+# factory/tasks/_task-finish.yml
 version: '3'
-
 tasks:
   task-finish:
-    desc: "(Action) Syncs the branch and opens a browser to create a PR."
+    desc: "(Placeholder) Task to be implemented for task-finish."
     silent: true
     cmds:
-      - ./scripts/finish_task.sh
+      - echo "INFO - The 'task-finish' task is a placeholder and needs to be implemented."

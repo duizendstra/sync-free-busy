@@ -1,10 +1,8 @@
-# tasks/_clean.yml
-# Implements the high-level 'clean' command.
+# factory/tasks/_clean.yml
 version: '3'
-
 tasks:
   clean:
-    desc: "Cleans generated files and interactively prompts for branch cleanup."
+    desc: "(Placeholder) Task to be implemented for clean."
     silent: true
     cmds:
-      - ./scripts/clean.sh
+      - echo "INFO - The 'clean' task is a placeholder and needs to be implemented."

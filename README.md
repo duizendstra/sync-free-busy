@@ -1,27 +1,22 @@
 # SyncFreeBusy Project
 
-This repository contains the source code and documentation for **SyncFreeBusy**, a Google Apps Script project for synchronizing availability across multiple Google Calendars.
+This repository contains the source code and development environment for **SyncFreeBusy**, a Google Apps Script project for synchronizing availability across multiple Google Calendars.
 
 The goal of this project is to prevent double-booking and provide a clear, unified view of your true availability, even when you manage separate calendars for work, personal life, and other commitments.
 
-## The Products
+## How This Repository is Organized
 
-This project contains two distinct "products" or variants, each designed for a different use case. They are located in the `products` directory. Choose the one that best fits your needs.
+This project is organized into a structured monorepo to keep the code, documentation, and automation tools clean and maintainable.
 
-### 1. `direct-link`
-- **What it is:** A simple, direct synchronization between two calendars.
-- **How it works:** Events from your work calendar are mirrored as blocking events in your personal calendar, and vice-versa.
-- **Best for:** Users who want a straightforward, two-way sync and don't mind seeing blocking events integrated directly into their primary calendars.
-- **[Go to direct-link variant](./products/direct-link/README.md)**
+*   **`/products`**: This is where the deployable code lives. It contains the two distinct product variants:
+    *   **`direct-link`**: A simple, two-way sync between two calendars.
+    *   **`availability-hub`**: An advanced solution that uses a dedicated calendar to aggregate availability from multiple sources.
 
-### 2. `availability-hub`
-- **What it is:** An advanced, scalable solution that uses a dedicated calendar to aggregate your availability.
-- **How it works:** Events from all your source calendars (work, personal, etc.) are used to create blocking events on a single, separate "hub" calendar. Your primary calendars remain untouched and clean.
-- **Best for:** Power users who manage multiple calendars and want a single, shareable source of truth for their availability.
-- **[Go to availability-hub variant](./products/availability-hub/README.md)**
+*   **`/factory`**: This directory contains the project's automation framework, powered by `go-task`. It includes all the commands for deploying, analyzing, and managing the products.
 
-## Contributing
-If you'd like to contribute, please fork the repository and submit a pull request. For major changes, please open an issue first to discuss what you would like to change.
+*   **`/docs`**: This directory holds all internal project documentation, including the product backlog (`PBIs`), sprint plans, and other development-related artifacts.
 
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+## Getting Started
+
+1.  **Explore the Products:** Review the `README.md` files inside each of the `products/` subdirectories for specific setup instructions.
+2.  **Use the Factory:** Use the `task` command to see a list of available automation tasks for managing the project.

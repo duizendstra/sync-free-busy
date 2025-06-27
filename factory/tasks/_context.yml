@@ -1,14 +1,8 @@
-# tasks/_context.yml
-# WHAT: This file is the facade for all context-generation commands.
-# WHY:  It provides a single, consistent helper task that forwards all
-#       arguments to the main context controller script.
-
+# factory/tasks/_context.yml
 version: '3'
-
 tasks:
-  # This single helper task is called by all `context:*` tasks in the root Taskfile.
-  # It receives the specific mode (e.g., 'commit', 'export-code') via CLI_ARGS.
-  helper:
-    internal: true
+  context:
+    desc: "(Placeholder) Task to be implemented for context."
+    silent: true
     cmds:
-      - ./scripts/context.sh {{.CLI_ARGS}}
+      - echo "INFO - The 'context' task is a placeholder and needs to be implemented."

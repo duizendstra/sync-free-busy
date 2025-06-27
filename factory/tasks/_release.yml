@@ -1,27 +1,8 @@
-# tasks/_release.yml
-# This file defines the helper task for creating a new versioned release.
-# It calls the release.sh script, passing the version and environment.
+# factory/tasks/_release.yml
 version: '3'
-
 tasks:
   release:
-    desc: "(Helper) Runs the versioned release script."
-    internal: true
+    desc: "(Placeholder) Task to be implemented for release."
     silent: true
-    env:
-      # Export all necessary variables for the script to use.
-      ASSETS_PROJECT_ID:      "{{.ASSETS_PROJECT_ID}}"
-      ASSETS_GCP_REGION:      "{{.ASSETS_GCP_REGION}}"
-      ARTIFACT_REGISTRY_NAME: "{{.ARTIFACT_REGISTRY_NAME}}"
-      ARTIFACT_REGISTRY_REPO: "{{.ARTIFACT_REGISTRY_REPO}}"
-      COMPUTE_PROJECT_ID:     "{{.COMPUTE_PROJECT_ID}}"
-      COMPUTE_GCP_REGION:     "{{.COMPUTE_GCP_REGION}}"
-      CLOUD_RUN_JOB_NAME:     "{{.CLOUD_RUN_JOB_NAME}}"
-      CONTAINER_NAME:         "{{.CONTAINER_NAME}}"
-      GCS_BUCKET_NAME:        "{{.GCS_BUCKET_NAME}}"
-      LOG_LEVEL:              "{{.LOG_LEVEL}}"
-      TARGET_PRINCIPAL_SA:    "{{.TARGET_PRINCIPAL_SA}}"
-      TARGET_USER_EMAILS:     "{{.TARGET_USER_EMAILS}}"
     cmds:
-      # Pass the command-line arguments (e.g., v1.2.3) to the script.
-      - ./scripts/release.sh {{.CLI_ARGS}}
+      - echo "INFO - The 'release' task is a placeholder and needs to be implemented."
