@@ -1,0 +1,24 @@
+# factory/tasks/_deploy.yml
+version: '3'
+
+tasks:
+  deploy:
+    desc: "Deploys a selected Apps Script product using clasp."
+    silent: true
+    cmds:
+      - |
+        echo "Please select the product to deploy:"
+        # Use 'gum' to create an interactive choice menu.
+        # The chosen product name will be stored in the PRODUCT variable.
+        PRODUCT=$(gum choose "direct-link" "availability-hub")
+
+        # Check if a product was selected (if user presses Esc, PRODUCT is empty)
+        if [ -z "$PRODUCT" ]; then
+          echo "No product selected. Aborting deployment."
+          exit 1
+        fi
+
+        echo "--> Preparing to deploy '{{.PRODUCT}}'..."
+        # Change directory into the selected product, run clasp, then change back.
+        (cd products/$PRODUCT && npx clasp push)
+        echo "✅ Deployment command for '{{.PRODUCT}}' finished."

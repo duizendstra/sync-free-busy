@@ -1,0 +1,8 @@
+# factory/tasks/_build.yml
+version: '3'
+tasks:
+  build:
+    desc: "(Info) This task is not applicable to Apps Script projects."
+    silent: true
+    cmds:
+      - echo "INFO - The 'build' command is not used in this Apps Script project."

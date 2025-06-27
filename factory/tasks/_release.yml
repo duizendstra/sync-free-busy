@@ -1,0 +1,8 @@
+# factory/tasks/_release.yml
+version: '3'
+tasks:
+  release:
+    desc: "(Placeholder) Task to be implemented for release."
+    silent: true
+    cmds:
+      - echo "INFO - The 'release' task is a placeholder and needs to be implemented."

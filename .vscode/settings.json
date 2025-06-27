@@ -1,0 +1,37 @@
+{
+    "IDX.aI.enableInlineCompletion": true,
+    "IDX.aI.enableCodebaseIndexing": true,
+    "terminal.integrated.localEchoLatencyThreshold": -1,
+    "terminal.integrated.localEchoEnabled": "off",
+    "terminal.integrated.fontSize": 13,
+    "workbench.startupEditor": "none",
+    "editor.fontFamily": "JetBrains Mono, Menlo, Monaco, Courier New, monospace",
+    "editor.fontWeight": "normal",
+    "editor.fontSize": 13,
+    "editor.lineHeight": 1.5,
+    "editor.letterSpacing": 0,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.markdownlint": "always"
+    },
+    "debug.console.fontSize": 13,
+    "window.commandCenter": false,
+    "window.autoDetectColorScheme": true,
+    "inlineChat.mode": "preview",
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "editor.wordWrap": "on",
+    "files.watcherExclude": {
+      "**/.cache/**": true,
+      "**/.git/**": true,
+      "**/node_modules/**": true
+    },
+    "go.useLanguageServer": true,
+    "workbench.activityBar.location": "top",
+    "workbench.colorTheme": "Monokai",
+    "workbench.iconTheme": "vs-seti",
+    "workbench.layoutControl.enabled": false,
+    "workbench.preferredDarkColorTheme": "Tomorrow Night Blue",
+    "workbench.preferredLightColorTheme": "Monospace Light",
+    "files.insertFinalNewline": true,
+  }
+  

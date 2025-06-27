@@ -1,0 +1,8 @@
+# factory/tasks/_test.yml
+version: '3'
+tasks:
+  test:
+    desc: "(Placeholder) Task to be implemented for test."
+    silent: true
+    cmds:
+      - echo "INFO - The 'test' task is a placeholder and needs to be implemented."

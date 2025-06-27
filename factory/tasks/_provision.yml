@@ -1,0 +1,8 @@
+# factory/tasks/_provision.yml
+version: '3'
+tasks:
+  provision:
+    desc: "(Info) This task is not applicable to Apps Script projects."
+    silent: true
+    cmds:
+      - echo "INFO - The 'provision' command is not used in this Apps Script project."

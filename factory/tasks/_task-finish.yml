@@ -1,0 +1,8 @@
+# factory/tasks/_task-finish.yml
+version: '3'
+tasks:
+  task-finish:
+    desc: "(Placeholder) Task to be implemented for task-finish."
+    silent: true
+    cmds:
+      - echo "INFO - The 'task-finish' task is a placeholder and needs to be implemented."

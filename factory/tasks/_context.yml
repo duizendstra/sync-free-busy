@@ -1,0 +1,8 @@
+# factory/tasks/_context.yml
+version: '3'
+tasks:
+  context:
+    desc: "(Placeholder) Task to be implemented for context."
+    silent: true
+    cmds:
+      - echo "INFO - The 'context' task is a placeholder and needs to be implemented."

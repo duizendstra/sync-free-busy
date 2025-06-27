@@ -1,0 +1,21 @@
+# factory/tasks/_analyze.yml
+version: '3'
+
+tasks:
+  analyze:
+    desc: "Analyzes the code of a selected product using ESLint."
+    silent: true
+    cmds:
+      - |
+        echo "Please select the product to analyze:"
+        PRODUCT=$(gum choose "direct-link" "availability-hub")
+
+        if [ -z "$PRODUCT" ]; then
+          echo "No product selected. Aborting analysis."
+          exit 1
+        fi
+
+        echo "--> Analyzing '{{.PRODUCT}}' with ESLint..."
+        # Change directory, run eslint, then change back.
+        (cd products/$PRODUCT && npx eslint .)
+        echo "✅ Analysis for '{{.PRODUCT}}' finished."

@@ -1,0 +1,8 @@
+# factory/tasks/_verify.yml
+version: '3'
+tasks:
+  verify:
+    desc: "(Info) This task is not applicable to Apps Script projects."
+    silent: true
+    cmds:
+      - echo "INFO - The 'verify' command is not used in this Apps Script project."

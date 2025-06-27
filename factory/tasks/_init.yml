@@ -1,0 +1,8 @@
+# factory/tasks/_init.yml
+version: '3'
+tasks:
+  init:
+    desc: "(Placeholder) Task to be implemented for init."
+    silent: true
+    cmds:
+      - echo "INFO - The 'init' task is a placeholder and needs to be implemented."

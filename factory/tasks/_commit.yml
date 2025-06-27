@@ -1,0 +1,8 @@
+# factory/tasks/_commit.yml
+version: '3'
+tasks:
+  commit:
+    desc: "(Placeholder) Task to be implemented for commit."
+    silent: true
+    cmds:
+      - echo "INFO - The 'commit' task is a placeholder and needs to be implemented."

@@ -1,0 +1,17 @@
+# factory/tasks/_update.yml
+version: '3'
+
+tasks:
+  deps-update:
+    desc: "Installs or updates npm dependencies for all products."
+    silent: true
+    cmds:
+      - |
+        echo "INFO - Searching for products with dependencies..."
+        # This command finds all package.json files in the products directory,
+        # then iterates over their parent directories to run npm install.
+        find products -name "package.json" -maxdepth 2 -exec dirname {} \; | while read -r dir; do
+          echo "INFO - Installing dependencies for '$dir'..."
+          (cd "$dir" && npm install)
+        done
+        echo "✅ SUCCESS - Dependency installation complete."

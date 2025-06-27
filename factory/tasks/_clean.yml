@@ -1,0 +1,8 @@
+# factory/tasks/_clean.yml
+version: '3'
+tasks:
+  clean:
+    desc: "(Placeholder) Task to be implemented for clean."
+    silent: true
+    cmds:
+      - echo "INFO - The 'clean' task is a placeholder and needs to be implemented."

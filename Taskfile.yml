@@ -1,0 +1,204 @@
+# Taskfile.yml
+#
+# WHAT: This file is the single, user-facing entry point for all project automation.
+# WHY:  It provides a simple, high-level command menu that is easy for developers
+#       to use and understand, hiding the complexity of the underlying scripts and tools.
+#       This approach, called "Menu / Workflow / Action", is designed to reduce cognitive load.
+
+version: '3'
+
+# ==============================================================================
+#  INCLUDED TASK FILES
+# ==============================================================================
+# WHAT: This block includes all the helper Taskfiles from the ./factory/tasks/ directory.
+# WHY:  Including these files allows this main Taskfile to act as a clean menu,
+#       delegating the actual implementation logic to the included files. This
+#       keeps the project's automation organized and maintainable.
+# ==============================================================================
+includes:
+  # --- Local Development (Inner Loop) ---
+  _task-start:      ./factory/tasks/_task-start.yml
+  _context:         ./factory/tasks/_context.yml
+  _run:             ./factory/tasks/_run.yml
+  _commit:          ./factory/tasks/_commit.yml
+  _task-finish:     ./factory/tasks/_task-finish.yml
+
+  # --- Build & Release Pipeline (Outer Loop) ---
+  _build:           ./factory/tasks/_build.yml
+  _test:            ./factory/tasks/_test.yml
+  _analyze:         ./factory/tasks/_analyze.yml
+  _release:         ./factory/tasks/_release.yml
+  _deploy:          ./factory/tasks/_deploy.yml
+
+  # --- Infrastructure & Utilities ---
+  _provision:       ./factory/tasks/_provision.yml
+  _verify:          ./factory/tasks/_verify.yml
+  _destroy:         ./factory/tasks/_destroy.yml
+  _update:          ./factory/tasks/_update.yml
+  _clean:           ./factory/tasks/_clean.yml
+
+  # --- Core Internal Utilities ---
+  _init:            ./factory/tasks/_init.yml
+
+# WHAT: This directive automatically loads environment variables from the .env file.
+# WHY:  This makes project-specific variables (like GCP_PROJECT_ID) available
+#       to all tasks and their underlying scripts without manual sourcing.
+dotenv: [".env"]
+
+tasks:
+  # WHAT: This is the default task that runs when 'task' is called without arguments.
+  # WHY:  Its purpose is to display a well-formatted, user-friendly help menu
+  #       that describes all available high-level commands.
+  default:
+    desc: "Displays the main project command menu."
+    silent: true
+    cmds:
+      - |
+        echo
+        echo "----------------------------------------------------------------------------"
+        echo "          ✨ THEA Command Menu (Cognitively-Refined) ✨"
+        echo "----------------------------------------------------------------------------"
+        echo "Run \`task <command>\` to execute an action. e.g., \`task test\`"
+        echo
+        echo -e "\033[1m--- 💻 Local Development (Inner Loop) ---\033[0m"
+        echo "    Tasks for the core cycle of coding and local iteration."
+        echo
+        echo -e "  \033[32mtask-start\033[0m   - ACTION:   Initiate a new task (e.g., \`git checkout -b new-feature\`)."
+        echo -e "  \033[32mcontext\033[0m      - VIEW:     Generate context for a specific goal (commit, pr, verify, export-*)."
+        echo -e "  \033[32mrun\033[0m          - ACTION:   Execute the application locally on your machine."
+        echo -e "  \033[32mcommit\033[0m       - ACTION:   Save all local changes into a new commit (e.g., \`git commit\`)."
+        echo -e "  \033[32mtask-finish\033[0m  - ACTION:   Finalize a task (e.g., create a pull request)."
+        echo
+        echo -e "\033[1m--- 📦 Build & Release Pipeline (Outer Loop) ---\033[0m"
+        echo "    Tasks for building, testing, and deploying the application."
+        echo
+        echo -e "  \033[32mbuild\033[0m        - ACTION:   Compile source code and create a build artifact."
+        echo -e "  \033[32mtest\033[0m         - ACTION:   Run the application's full suite of automated tests."
+        echo -e "  \033[32manalyze\033[0m      - ACTION:   Inspect code for quality, style, and vulnerabilities."
+        echo -e "  \033[32mrelease\033[0m      - ACTION:   Create and publish a new versioned release artifact."
+        echo -e "  \033[32mdeploy\033[0m       - ACTION:   Deploys the application to the cloud."
+        echo
+        echo -e "\033[1m--- ☁️ Infrastructure & Utilities ---\033[0m"
+        echo "    Tasks for managing cloud resources and local housekeeping."
+        echo
+        echo -e "  \033[32mprovision\033[0m    - GUIDE:    Shows setup checklist for cloud infrastructure."
+        echo -e "  \033[32mverify\033[0m       - VIEW:     Check that provisioned infrastructure is healthy."
+        echo -e "  \033[31mdestroy\033[0m      - ACTION:   Shows checklist for tearing down all infrastructure."
+        echo -e "  \033[32mdeps-update\033[0m  - ACTION:   Update third-party dependencies to their latest versions."
+        echo -e "  \033[32mclean\033[0m        - ACTION:   Remove all local temporary files and build artifacts."
+        echo
+
+  # ============================================================================
+  #  FACADE TASKS
+  # ============================================================================
+  # WHAT: Each task below is a simple "facade" that delegates its execution
+  #       to a corresponding task in an included file from the `tasks/` directory.
+  #
+  # WHY:  This pattern keeps the root Taskfile clean and readable, like a high-level
+  #       API menu. It abstracts away the implementation details and enforces a
+  #       consistent structure across the entire project.
+  #
+  # HOW:  The `vars: { CLI_ARGS: '{{.CLI_ARGS}}' }` block is used universally.
+  #       It captures any arguments passed after a '--' on the command line
+  #       (e.g., `task commit -- -m "msg"`) and forwards them to the
+  #       underlying script, enabling both interactive and parameterized use.
+  # ============================================================================
+  task-start:
+    desc: "ACTION: Initiate a new task (e.g., git checkout -b new-feature)."
+    cmds:
+      - task: _task-start:task-start
+        vars: { CLI_ARGS: '{{.CLI_ARGS}}' }
+
+  context:
+    desc: "VIEW: Show a summary of local file changes (e.g., git context)."
+    cmds:
+      - task: _context:helper
+        vars: { CLI_ARGS: '{{.CLI_ARGS}}' }
+
+  run:
+    desc: "ACTION: Execute the application locally on your machine."
+    cmds:
+      - task: _run:run
+        vars: { CLI_ARGS: '{{.CLI_ARGS}}' }
+
+  commit:
+    desc: "ACTION: Save all local changes into a new commit (e.g., git commit)."
+    cmds:
+      - task: _commit:commit
+        vars: { CLI_ARGS: '{{.CLI_ARGS}}' }
+
+  task-finish:
+    desc: "ACTION: Finalize a task (e.g., create a pull request)."
+    cmds:
+      - task: _task-finish:task-finish
+        vars: { CLI_ARGS: '{{.CLI_ARGS}}' }
+
+  build:
+    desc: "ACTION: Compile source code and create a build artifact."
+    cmds:
+      - task: _build:build
+        vars: { CLI_ARGS: '{{.CLI_ARGS}}' }
+
+  test:
+    desc: "ACTION: Run the application's full suite of automated tests."
+    cmds:
+      - task: _test:test
+        vars: { CLI_ARGS: '{{.CLI_ARGS}}' }
+
+  analyze:
+    desc: "ACTION: Inspect code for quality, style, and vulnerabilities."
+    cmds:
+      - task: _analyze:analyze
+        vars: { CLI_ARGS: '{{.CLI_ARGS}}' }
+
+  release:
+    desc: "ACTION: Create and publish a new versioned release artifact."
+    cmds:
+      - task: _release:release
+        vars: { CLI_ARGS: '{{.CLI_ARGS}}' }
+
+  deploy:
+    desc: "ACTION: Deploys the application to the cloud."
+    cmds:
+      - task: _deploy:deploy
+        vars: { CLI_ARGS: '{{.CLI_ARGS}}' }
+
+  provision:
+    desc: "GUIDE: Shows setup checklist for cloud infrastructure."
+    cmds:
+      - task: _provision:provision
+        vars: { CLI_ARGS: '{{.CLI_ARGS}}' }
+
+  verify:
+    desc: "VIEW: Check that provisioned infrastructure is healthy."
+    cmds:
+      - task: _verify:verify
+        vars: { CLI_ARGS: '{{.CLI_ARGS}}' }
+
+  destroy:
+    desc: "ACTION: Permanently destroys ALL cloud infrastructure (requires confirmation)."
+    cmds:
+      - task: _destroy:destroy
+        vars: { CLI_ARGS: '{{.CLI_ARGS}}' }
+
+  deps-update:
+    desc: "ACTION: Update third-party dependencies to their latest versions."
+    cmds:
+      - task: _update:deps-update
+        vars: { CLI_ARGS: '{{.CLI_ARGS}}' }
+
+  clean:
+    desc: "ACTION: Remove all local temporary files and build artifacts."
+    cmds:
+      - task: _clean:clean
+        vars: { CLI_ARGS: '{{.CLI_ARGS}}' }
+
+  # --- Hidden Utilities ---
+  init:
+    internal: true
+    cmds:
+      - task: _init:init
+  env:
+    internal: true
+    cmds:
+      - task: _init:env
