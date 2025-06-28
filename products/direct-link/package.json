@@ -4,7 +4,12 @@
   "description": "Direct-link variant of the SyncFreeBusy project.",
   "private": true,
   "devDependencies": {
+    "@babel/core": "^7.27.7",
+    "@babel/preset-env": "^7.27.2",
+    "@types/jest": "^30.0.0",
+    "babel-jest": "^30.0.2",
     "eslint": "^9.29.0",
-    "eslint-plugin-googleappsscript": "^1.0.5"
+    "eslint-plugin-googleappsscript": "^1.0.5",
+    "jest": "^30.0.3"
   }
 }
