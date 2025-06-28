@@ -8,7 +8,7 @@ description: "Create a single-source-of-truth glossary to define key project ter
 tags: ["documentation", "glossary", "onboarding", "standards"]
 params:
   pbi_id: "PBI-SFB-DOCS-007"
-  status: "To Do"
+  status: "Done"
   priority: "High"
 ---
 ## 1. PBI Goal & Justification

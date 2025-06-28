@@ -8,7 +8,7 @@ description: "Document the team's specific implementation of the Scrum framework
 tags: ["documentation", "process", "scrum", "agile"]
 params:
   pbi_id: "PBI-SFB-DOCS-008"
-  status: "To Do"
+  status: "Done"
   priority: "High"
 ---
 ## 1. PBI Goal & Justification

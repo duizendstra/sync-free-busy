@@ -7,7 +7,7 @@ type: "sprint-plan"
 tags: ["sprint-plan", "documentation", "sprint-003", "process", "scrum", "personas"]
 params:
   sprint_id: "sprint-003"
-  status: "In Progress"
+  status: "Done"
   sprint_goal: "To formalize our core operational framework by documenting the Scrum process, defining the team personas, and establishing a project glossary."
 ---
 ## Sprint Goal
