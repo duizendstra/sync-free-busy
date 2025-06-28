@@ -29,13 +29,15 @@ append_book() {
   local paths=("$@")
   local files
 
-  # Find all files tracked by git in the given paths.
-  files=$(git ls-files -- "${paths[@]}")
+  # Find all files tracked by git in the given paths, then pipe to grep
+  # to filter out any package-lock.json files.
+  files=$(git ls-files -- "${paths[@]}" | grep -v 'package-lock\.json$' || true)
+
 
   # Append the book header to the main output file.
   { echo ""; echo "---"; echo "## Book: ${title}"; echo ""; } >> "$OUTPUT_FILE"
 
-  # Process each file found by Git.
+  # Process each file found.
   echo "$files" | while read -r file; do
     # Skip if the file doesn't exist or is not a text file.
     if [ ! -f "$file" ] || ! is_text_file "$file"; then
@@ -74,7 +76,35 @@ After you have processed all the information, your **only** response should be a
 ---
 EOF
 
-# 2. Execute the export for each part of our architecture.
+# 2. Append the current Git repository state.
+{
+  echo ""
+  echo "---"
+  echo "## Git Repository State"
+  echo ""
+  echo "### Current Branch"
+  echo "\`\`\`"
+  git rev-parse --abbrev-ref HEAD
+  echo "\`\`\`"
+  echo ""
+  echo "### Local Changes (Status)"
+  echo "\`\`\`"
+  git status
+  echo "\`\`\`"
+  echo ""
+  echo "### Local Branches"
+  echo "\`\`\`"
+  git branch
+  echo "\`\`\`"
+  echo ""
+  echo "### Remote Branches"
+  echo "\`\`\`"
+  git branch -r
+  echo "\`\`\`"
+} >> "$OUTPUT_FILE"
+
+
+# 3. Execute the export for each part of our architecture.
 append_book "The Products (Deployable Code)" "products/"
 append_book "The Factory (Automation Framework)" "factory/" "Taskfile.yml"
 append_book "The Library (Project Documentation)" "docs/" "README.md" "CHANGELOG.md" "LICENSE"
