@@ -1,14 +1,14 @@
 ---
 title: "PBI: Activate the Factory for SyncFreeBusy"
-date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
-lastmod: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+date: 2025-06-28T08:22:10Z
+lastmod: 2025-06-28T08:22:10Z
 draft: false
 type: "pbi"
 description: "Adapt the 'deploy' and 'analyze' tasks in the factory to work with the JavaScript-based SyncFreeBusy products."
 tags: ["factory", "automation", "taskfile", "deploy", "analyze", "clasp", "eslint"]
 params:
   pbi_id: "PBI-SFB-FACTORY-001"
-  status: "To Do"
+  status: "Done"
   priority: "High"
 ---
 ## 1. PBI Goal & Justification

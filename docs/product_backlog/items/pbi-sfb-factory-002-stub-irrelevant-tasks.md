@@ -1,14 +1,14 @@
 ---
 title: "PBI: Stub Out Irrelevant Factory Tasks"
 date: 2025-06-27T10:51:32Z
-lastmod: 2025-06-27T10:51:32Z
+lastmod: 2025-06-28T08:22:10Z
 draft: false
 type: "pbi"
 description: "Convert all factory tasks that are not applicable to an Apps Script project into informational stubs."
 tags: ["factory", "automation", "taskfile", "maintenance"]
 params:
   pbi_id: "PBI-SFB-FACTORY-002"
-  status: "To Do"
+  status: "Done"
   priority: "Low"
 ---
 ## 1. PBI Goal & Justification
