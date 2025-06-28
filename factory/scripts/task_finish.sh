@@ -54,7 +54,8 @@ echo "--> Syncing '$CURRENT_BRANCH' with latest '$MAIN_BRANCH'..."
 git merge origin/"$MAIN_BRANCH"
 
 echo "--> Pushing updated branch to remote..."
-git push -u origin "$CURRENT_BRANCH"
+# Use --force-with-lease to safely handle post-rebase pushes.
+git push --force-with-lease -u origin "$CURRENT_BRANCH"
 
 echo "--> Opening browser to create a Pull Request..."
 # Use gh pr create to automatically fill in details from commits and open the web browser.
