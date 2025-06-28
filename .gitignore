@@ -1,4 +1,12 @@
-main.js
 # Node.js dependencies
-**/node_modules
-context_*
+node_modules/
+
+# Local environment variables
+.env
+
+# Temporary context files
+context_*.md
+
+# OS-specific files
+.DS_Store
+Thumbs.db
