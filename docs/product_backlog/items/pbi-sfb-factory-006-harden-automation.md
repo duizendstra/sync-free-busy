@@ -8,7 +8,7 @@ description: "Perform a full, end-to-end test of every command in the automation
 tags: ["factory", "automation", "testing", "hardening", "bugfix", "enhancement"]
 params:
   pbi_id: "PBI-SFB-FACTORY-006"
-  status: "To Do"
+  status: "Done"
   priority: "High"
 ---
 ## 1. PBI Goal & Justification

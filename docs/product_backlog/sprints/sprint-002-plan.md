@@ -7,7 +7,7 @@ type: "sprint-plan"
 tags: ["sprint-plan", "factory", "sprint-002", "testing", "git-workflow"]
 params:
   sprint_id: "sprint-002"
-  status: "To Do"
+  status: "Done"
   sprint_goal: "Elevate the factory by implementing a robust testing framework and guided Git workflow scripts."
 ---
 ## Sprint Goal
