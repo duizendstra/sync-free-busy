@@ -25,7 +25,7 @@ fi
 gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "🌿 Let's create a new branch."
 
 echo "Select a branch type:"
-BRANCH_TYPE=$(gum choose "feature" "fix" "docs" "style" "refactor" "test" "chore")
+BRANCH_TYPE=$(gum choose "feature" "fix" "docs" "style" "refactor" "test" "chore" "factory")
 if [ -z "$BRANCH_TYPE" ]; then exit 1; fi
 
 echo "Enter the PBI number or scope (e.g., SFB-003):"

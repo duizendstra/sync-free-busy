@@ -1,12 +1,19 @@
 #!/bin/bash
 # factory/scripts/clean.sh
 #
-# WHAT: Removes temporary build artifacts, generated files, and merged local branches.
-# WHY:  Provides a single, consistent way to return the project to a clean state.
+# WHAT: Switches to the main branch, pulls the latest changes, and removes
+#       temporary build artifacts and merged local branches.
+# WHY:  Provides a single, consistent command to run after a PR has been merged.
 
 set -e
 
-gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "🧹 Starting Project Cleanup..."
+gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "🧹 Starting Project Synchronization & Cleanup..."
+
+echo "--> Switching to 'main' branch..."
+git checkout main
+
+echo "--> Pulling latest changes from origin..."
+git pull origin main
 
 echo "--> Removing all 'node_modules' directories..."
 find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
@@ -25,4 +32,4 @@ git fetch --prune origin
 # The 'xargs -r' command ensures 'git branch -d' only runs if there are branches to delete.
 git branch --merged main | grep -vE '^\*|main$' | xargs -r git branch -d
 
-gum style --foreground 212 "✅ Cleanup complete."
+gum style --foreground 212 "✅ Sync and cleanup complete. Project is up-to-date."
