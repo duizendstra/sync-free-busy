@@ -3,7 +3,8 @@ version: '3'
 
 tasks:
   task-start:
-    desc: "Interactively creates and checks out a new, conventional feature branch."
+    desc: "Interactively or parametrically creates and checks out a new, conventional feature branch."
     silent: true
     cmds:
-      - ./factory/scripts/start_task.sh
+      # This now correctly passes the CLI arguments to the underlying script.
+      - ./factory/scripts/start_task.sh {{.CLI_ARGS}}
