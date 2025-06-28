@@ -1,14 +1,14 @@
 ---
 title: "PBI: Refactor and Stub Out Factory Tasks for Apps Script"
 date: 2025-06-27T10:34:30Z
-lastmod: 2025-06-27T10:34:30Z
+lastmod: 2025-06-28T08:22:10Z
 draft: false
 type: "pbi"
 description: "Refactor the entire factory automation layer by removing external scripts and stubbing out all task files (*.yml) to be specific to the SyncFreeBusy project."
 tags: ["maintenance", "refactor", "cleanup", "technical-debt", "factory", "taskfile"]
 params:
   pbi_id: "PBI-SFB-MAINT-001"
-  status: "To Do"
+  status: "Done"
   priority: "High"
 ---
 ## 1. PBI Goal & Justification

@@ -1,14 +1,14 @@
 ---
 title: "PBI: Implement Guided Git Workflow Tasks"
 date: 2025-06-27T10:51:32Z
-lastmod: 2025-06-27T10:51:32Z
+lastmod: 2025-06-28T08:22:10Z
 draft: false
 type: "pbi"
 description: "Implement the 'task-start', 'commit', and 'task-finish' commands with interactive shell scripts to standardize the Git workflow."
 tags: ["factory", "automation", "taskfile", "git-workflow", "scripts"]
 params:
   pbi_id: "PBI-SFB-FACTORY-003"
-  status: "To Do"
+  status: "Done"
   priority: "Medium"
 ---
 ## 1. PBI Goal & Justification
