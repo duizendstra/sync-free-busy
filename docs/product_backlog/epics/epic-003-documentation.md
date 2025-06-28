@@ -8,7 +8,7 @@ description: "This epic covers all work required to create and formalize a compl
 tags: ["epic", "documentation", "onboarding", "process", "scrum", "context-engineering"]
 params:
   epic_id: "EPIC-SFB-003"
-  status: "To Do"
+  status: "In Progress"
   priority: "High"
 ---
 ## 1. Epic Goal

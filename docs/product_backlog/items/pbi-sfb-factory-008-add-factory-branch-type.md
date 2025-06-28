@@ -8,7 +8,7 @@ description: "The 'task-start' script is missing 'factory' as an option in its i
 tags: ["factory", "automation", "workflow", "bugfix", "tooling"]
 params:
   pbi_id: "PBI-SFB-FACTORY-008"
-  status: "To Do"
+  status: "Done"
   priority: "High"
 ---
 ## 1. PBI Goal & Justification

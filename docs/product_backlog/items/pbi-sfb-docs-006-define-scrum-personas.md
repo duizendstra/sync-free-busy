@@ -8,7 +8,7 @@ description: "Flesh out the placeholder persona profiles for the core Scrum team
 tags: ["documentation", "personas", "team-model", "scrum", "onboarding"]
 params:
   pbi_id: "PBI-SFB-DOCS-006"
-  status: "To Do"
+  status: "Done"
   priority: "Medium"
 ---
 ## 1. PBI Goal & Justification

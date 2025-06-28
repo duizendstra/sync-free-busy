@@ -8,7 +8,7 @@ description: "Define and implement a new, robust, two-stage protocol for writing
 tags: ["process", "standards", "bugfix", "factory", "shell"]
 params:
   pbi_id: "PBI-SFB-DOCS-011"
-  status: "To Do"
+  status: "Done"
   priority: "Critical"
 ---
 ## 1. PBI Goal & Justification
