@@ -2,7 +2,7 @@
 version: '3'
 tasks:
   clean:
-    desc: "(Placeholder) Task to be implemented for clean."
+    desc: "Removes all local temporary files and build artifacts (node_modules, context files)."
     silent: true
     cmds:
-      - echo "INFO - The 'clean' task is a placeholder and needs to be implemented."
+      - ./factory/scripts/clean.sh
