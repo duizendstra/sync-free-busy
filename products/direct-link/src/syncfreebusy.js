@@ -473,3 +473,12 @@ const SyncFreeBusy = (params = {}) => {
         removeBlockingEvents
     });
 };
+
+try {
+    module.exports = {
+      SyncFreeBusy
+    };
+  } catch (e) {
+    // We're in the Google Apps Script environment, not Node.js.
+    // This error is expected and can be ignored.
+  }

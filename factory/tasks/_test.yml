@@ -1,8 +1,9 @@
 # factory/tasks/_test.yml
 version: '3'
+
 tasks:
   test:
-    desc: "(Placeholder) Task to be implemented for test."
+    desc: "Runs the Jest test suite for a selected product."
     silent: true
     cmds:
-      - echo "INFO - The 'test' task is a placeholder and needs to be implemented."
+      - ./factory/scripts/test.sh
