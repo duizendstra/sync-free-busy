@@ -1,7 +1,7 @@
 ---
 title: "PBI: Create Contribution and Improvement Playbook"
-date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
-lastmod: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+date: 2025-06-28T05:43:30Z
+lastmod: 2025-06-28T05:43:30Z
 draft: false
 type: "pbi"
 description: "Create a playbook that defines the process for submitting feedback and suggesting improvements to the THEA framework."

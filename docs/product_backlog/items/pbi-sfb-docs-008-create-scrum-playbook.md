@@ -1,7 +1,7 @@
 ---
 title: "PBI: Create Scrum Process Playbook"
-date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
-lastmod: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+date: 2025-06-28T05:43:30Z
+lastmod: 2025-06-28T05:43:30Z
 draft: false
 type: "pbi"
 description: "Document the team's specific implementation of the Scrum framework, including roles, ceremonies, and the Definition of Done."

@@ -1,13 +1,13 @@
 ---
 title: "Sprint 003: Formalize the Operational Framework"
 date: 2025-06-28T05:28:01Z
-lastmod: 2025-06-28T05:28:01Z
+lastmod: 2025-06-28T05:49:23Z
 draft: false
 type: "sprint-plan"
 tags: ["sprint-plan", "documentation", "sprint-003", "process", "scrum", "personas"]
 params:
   sprint_id: "sprint-003"
-  status: "To Do"
+  status: "In Progress"
   sprint_goal: "To formalize our core operational framework by documenting the Scrum process, defining the team personas, and establishing a project glossary."
 ---
 ## Sprint Goal

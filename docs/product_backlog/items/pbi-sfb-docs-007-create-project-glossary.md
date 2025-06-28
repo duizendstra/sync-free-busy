@@ -1,7 +1,7 @@
 ---
 title: "PBI: Create Project Glossary"
-date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
-lastmod: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+date: 2025-06-28T05:43:30Z
+lastmod: 2025-06-28T05:43:30Z
 draft: false
 type: "pbi"
 description: "Create a single-source-of-truth glossary to define key project terms like 'Artifact', 'Playbook', and 'Factory'."
